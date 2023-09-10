@@ -8,11 +8,10 @@ import {
 	Flex,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const NavBar = ({ children }) => {
-	const { pathname } = useLocation();
 	const navigate = useNavigate();
 	return (
 		<Flex
@@ -36,37 +35,37 @@ const NavBar = ({ children }) => {
 					fallbackSrc="/Coffee-cup-clip-art-free-perfect-cup-of-coffee-clipart-3-clipartcow.png"
 				/>
 			</Flex>
-			{pathname == "/" && (
-				<Menu>
-					<MenuButton
-						as={Button}
-						rightIcon={<ChevronDownIcon />}
-						sx={categoryStyle}
+
+			<Menu>
+				<MenuButton
+					as={Button}
+					rightIcon={<ChevronDownIcon />}
+					sx={categoryStyle}
+				>
+					Category
+				</MenuButton>
+				<MenuList sx={listStyle}>
+					<MenuItem
+						sx={listsStyle}
+						onClick={() => navigate("/category/electronics")}
 					>
-						Category
-					</MenuButton>
-					<MenuList sx={listStyle}>
-						<MenuItem
-							sx={listsStyle}
-							onClick={() => navigate("/category/:id")}
-						>
-							Electronics
-						</MenuItem>
-						<MenuItem
-							sx={listsStyle}
-							onClick={() => navigate("/category/:id")}
-						>
-							Cars
-						</MenuItem>
-						<MenuItem
-							sx={listsStyle}
-							onClick={() => navigate("/category/:id")}
-						>
-							Books
-						</MenuItem>
-					</MenuList>
-				</Menu>
-			)}
+						Electronics
+					</MenuItem>
+					<MenuItem
+						sx={listsStyle}
+						onClick={() => navigate("/category/car")}
+					>
+						Cars
+					</MenuItem>
+					<MenuItem
+						sx={listsStyle}
+						onClick={() => navigate("/category/book")}
+					>
+						Books
+					</MenuItem>
+				</MenuList>
+			</Menu>
+
 			<Button sx={{ ...categoryStyle }}>Login</Button>
 			{children}
 		</Flex>

@@ -3,7 +3,7 @@ import ItemListContainer from "./components/ItemListContainer";
 import ItemDetail from "./components/ItemDetail";
 import util from "./components/util/data.json";
 import { json } from "react-router-dom";
-import Categories from "./components/helper";
+import Categories from "./components/catagories";
 import "./App.css";
 
 import {

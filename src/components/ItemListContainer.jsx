@@ -38,10 +38,18 @@ const ItemListContainer = () => {
 						overflow="hidden"
 						variant="outline"
 						key={item.id}
+						p="30px"
 						display="flex"
 						flexDirection="column"
+						alignItems="center"
 						justifyContent="space-between"
 					>
+						<Heading
+							as="h4"
+							size="sm"
+						>
+							{item.name}
+						</Heading>
 						<Image
 							objectFit="cover"
 							maxW={{ base: "100%", sm: "200px" }}
@@ -53,6 +61,12 @@ const ItemListContainer = () => {
 						<Stack>
 							<CardBody>
 								<Heading size="md">${item.price}</Heading>
+								<Heading
+									as="h4"
+									size="sm"
+								>
+									available stock {item.stock}
+								</Heading>
 							</CardBody>
 
 							<CardFooter>

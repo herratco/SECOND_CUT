@@ -1,15 +1,20 @@
 {
      "products" :[
-		{ "id": 1, "name": "Lots of old books", "price": 1000, "stock": 100,"category":"book", "description":"Lots of old books",
+		{ "id": 1, "name": "Lots of old books", "price": 1000, "stock": 100,"category":"books", "description":"Lots of old books",
 		"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Old_book_-_Basking_Ridge_Historical_Society.jpg/640px-Old_book_-_Basking_Ridge_Historical_Society.jpg"},
-		{ "id": 2, "name": "prototype car", "price": 2000, "stock": 200 ,"category":"car","description":"Hyundai brand prototype vehicle",
+		{ "id": 2, "name": "prototype car", "price": 2000, "stock": 200 ,"category":"vehicles","description":"Hyundai brand prototype vehicle",
 		"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Hyundai_45_EV_Concept_at_IAA_2019_IMG_0683.jpg/640px-Hyundai_45_EV_Concept_at_IAA_2019_IMG_0683.jpg"},
 		{ "id": 3, "name": "Mouse", "price": 3000, "stock": 300,"category":"electronics", "description":"optical computer mouse",
 		"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Fair_produzierte_Computer_Maus_von_NagerIT.jpg/640px-Fair_produzierte_Computer_Maus_von_NagerIT.jpg" },
-		{ "id": 4, "name": "Hermione", "price": 4000, "stock": 400,"category":"book", "description":"Author: Don Marquis",
+		{ "id": 4, "name": "Hermione", "price": 4000, "stock": 400,"category":"books", "description":"Author: Don Marquis",
 		"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Hermione_-_book_cover.jpg/640px-Hermione_-_book_cover.jpg" },
-		{ "id": 5, "name": "The Yellow Book (has options)", "price": 1000, "stock": 100,"category":"book","description":"In perfect condition (has options)",
+		{ "id": 5, "name": "The Yellow Book (has options)", "price": 1000, "stock": 100,"category":"books","description":"In perfect condition (has options)",
 		"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Yellow_Book_Vol_6_Front_Cover.jpg/640px-Yellow_Book_Vol_6_Front_Cover.jpg"}
+			,
+		{
+			"id":6, "name":"Boat (has options)", "price":"500", "stock":"3","category":"vehicles","description":"Wooden rowing boat (has options)",
+			"src":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Viking_row_boat.jpg/499px-Viking_row_boat.jpg"
+		}
 	],
     "greeting":"From here you can see a list of all the categories",
 	"preference":"From here you can see a list of all the"

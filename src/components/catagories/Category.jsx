@@ -27,7 +27,7 @@ const Books = () => {
 				size="md"
 				p="40px 0"
 			>
-				`{data.preference} {id}s`
+				{data.preference} {id}
 			</Heading>
 			<Box
 				display="grid"

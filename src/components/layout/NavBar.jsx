@@ -7,6 +7,7 @@ import {
 	Image,
 	Flex,
 } from "@chakra-ui/react";
+import { useGoogleLogin } from "@react-oauth/google";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { useNavigate, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -25,11 +26,16 @@ const NavBar = ({ children }) => {
 		}
 	}, [pathname]);
 	const navigate = useNavigate();
+
+	const login = useGoogleLogin({
+		onSuccess: (responseToken) => console.log(responseToken),
+	});
 	return (
 		<Flex
 			display="flex"
 			alignItems="center"
 			padding="2vw"
+			justifyContent="space-around"
 			gap="5vw"
 			background="gray.900"
 		>
@@ -65,20 +71,25 @@ const NavBar = ({ children }) => {
 					</MenuItem>
 					<MenuItem
 						sx={listsStyle}
-						onClick={() => navigate("/category/car")}
+						onClick={() => navigate("/category/vehicles")}
 					>
-						Cars
+						Vehicles
 					</MenuItem>
 					<MenuItem
-						sx={listsStyle}
-						onClick={() => navigate("/category/book")}
+						sx={listStyle}
+						onClick={() => navigate("/category/books")}
 					>
 						Books
 					</MenuItem>
 				</MenuList>
 			</Menu>
 
-			<Button sx={{ ...categoryStyle }}>Login</Button>
+			<Button
+				sx={loginStyle}
+				onClick={() => login()}
+			>
+				Login
+			</Button>
 			{children}
 		</Flex>
 	);
@@ -106,10 +117,20 @@ const listStyle = {
 };
 const listsStyle = {
 	bg: "gray.900",
+	alignItems: "center",
 	":hover": {
 		bg: "gray.700",
 		border: "none",
 		outline: "none",
+	},
+};
+
+const loginStyle = {
+	bg: "gray.900",
+	color: "white",
+	":hover": {
+		outline: "none",
+		bg: "gray.900",
 	},
 };
 

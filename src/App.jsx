@@ -25,7 +25,7 @@ const router = createBrowserRouter(
 			/>
 
 			<Route
-				path="detail/:id"
+				path="item/:id"
 				loader={dataLoader}
 				element={<ItemDetail />}
 			/>

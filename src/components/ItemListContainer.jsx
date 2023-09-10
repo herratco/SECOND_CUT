@@ -29,7 +29,7 @@ const ItemListContainer = () => {
 			</Heading>
 			<Box
 				display="grid"
-				gridTemplateColumns="repeat(auto-fit, minmax(200px, 1fr))"
+				gridTemplateColumns="repeat(auto-fit, minmax(250px, 1fr))"
 				gap="30px"
 			>
 				{data.products.map((item) => (
@@ -74,7 +74,7 @@ const ItemListContainer = () => {
 									variant="solid"
 									colorScheme="white"
 									color="blue.800"
-									onClick={() => navigate(`/detail/${item.id}`)}
+									onClick={() => navigate(`/item/${item.id}`)}
 								>
 									Show detail
 								</Button>

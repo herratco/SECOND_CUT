@@ -16,10 +16,11 @@ const NavBar = ({ children }) => {
 	const navigate = useNavigate();
 	return (
 		<Flex
-			justifyContent="center"
+			display="flex"
 			alignItems="center"
 			padding="2vw"
 			gap="5vw"
+			background="gray.900"
 		>
 			<Flex
 				minH="48px"
@@ -40,22 +41,63 @@ const NavBar = ({ children }) => {
 					<MenuButton
 						as={Button}
 						rightIcon={<ChevronDownIcon />}
+						sx={categoryStyle}
 					>
-						Price range
+						Category
 					</MenuButton>
-					<MenuList>
-						<MenuItem onClick={() => navigate("/lessthan2000")}>
-							{"<="} $2000
+					<MenuList sx={listStyle}>
+						<MenuItem
+							sx={listsStyle}
+							onClick={() => navigate("/category/:id")}
+						>
+							Electronics
 						</MenuItem>
-						<MenuItem onClick={() => navigate("/greaterthan2000")}>
-							{">"} $2000
+						<MenuItem
+							sx={listsStyle}
+							onClick={() => navigate("/category/:id")}
+						>
+							Cars
+						</MenuItem>
+						<MenuItem
+							sx={listsStyle}
+							onClick={() => navigate("/category/:id")}
+						>
+							Books
 						</MenuItem>
 					</MenuList>
 				</Menu>
 			)}
+			<Button sx={{ ...categoryStyle }}>Login</Button>
 			{children}
 		</Flex>
 	);
+};
+
+const categoryStyle = {
+	bg: "gray.900",
+	color: "white",
+	":hover": {
+		bg: "gray.900",
+		color: "white",
+		outline: "none",
+	},
+	":active": {
+		bg: "gray.900",
+	},
+};
+
+const listStyle = {
+	bg: "gray.900",
+	color: "white",
+	outline: "none",
+};
+const listsStyle = {
+	bg: "gray.900",
+	":hover": {
+		bg: "gray.700",
+		border: "none",
+		outline: "none",
+	},
 };
 
 NavBar.propTypes = {

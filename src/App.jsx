@@ -3,7 +3,7 @@ import ItemListContainer from "./components/ItemListContainer";
 import ItemDetail from "./components/ItemDetail";
 import util from "./components/util/data.json";
 import { json } from "react-router-dom";
-import { LessThan, GreaterThan } from "./components/helper";
+import Categories from "./components/helper";
 import "./App.css";
 
 import {
@@ -30,14 +30,9 @@ const router = createBrowserRouter(
 				element={<ItemDetail />}
 			/>
 			<Route
-				path="lessthan2000"
+				path="category/:id"
 				loader={dataLoader}
-				element={<LessThan />}
-			/>
-			<Route
-				path="greaterthan2000"
-				loader={dataLoader}
-				element={<GreaterThan />}
+				element={<Categories />}
 			/>
 		</Route>
 	)

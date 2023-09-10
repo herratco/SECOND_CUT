@@ -10,7 +10,6 @@ export default function Layout() {
 			<Box
 				display="flex"
 				flexDirection="column"
-				padding="min(50px, 2vw)"
 				height="100vh"
 				width="100vw"
 				mb="100px"

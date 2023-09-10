@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
 	Container,
 	Card,
@@ -12,10 +12,11 @@ import {
 	Box,
 } from "@chakra-ui/react";
 
-const GreaterThan2000 = () => {
+const Books = () => {
+	const { id } = useParams();
 	const data = useLoaderData();
 	const navigate = useNavigate();
-	let items = data.products.filter((item) => item.price > 2000);
+	let items = data.products.filter((item) => item.category === id);
 	return (
 		<Container
 			maxW="6xl"
@@ -44,7 +45,7 @@ const GreaterThan2000 = () => {
 							objectFit="cover"
 							maxW={{ base: "100%", sm: "200px" }}
 							src={item.src}
-							alt="Caffe Latte"
+							alt="book not found"
 						/>
 
 						<Stack>
@@ -70,4 +71,4 @@ const GreaterThan2000 = () => {
 	);
 };
 
-export default GreaterThan2000;
+export default Books;

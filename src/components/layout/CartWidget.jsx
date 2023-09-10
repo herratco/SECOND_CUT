@@ -7,9 +7,18 @@ const CartWidget = () => {
 		<Box
 			display="flex"
 			gap="5px"
+			justifySelf="flex-end"
 		>
-			<AiOutlineShoppingCart size="30px" />
-			<Text fontSize="md">{count}</Text>
+			<AiOutlineShoppingCart
+				size="30px"
+				color="white"
+			/>
+			<Text
+				fontSize="md"
+				color="white"
+			>
+				{count}
+			</Text>
 		</Box>
 	);
 };

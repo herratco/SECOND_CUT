@@ -37,7 +37,7 @@ export default function ItemDetail() {
 				objectFit="cover"
 				maxW={{ base: "100%", sm: "200px" }}
 				src={item.src}
-				alt="Caffe Latte"
+				alt={`${item.name} is not found`}
 			/>
 
 			<Stack>

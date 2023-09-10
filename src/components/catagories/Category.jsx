@@ -27,11 +27,11 @@ const Books = () => {
 				size="md"
 				p="40px 0"
 			>
-				{data.preference}
+				`{data.preference} {id}s`
 			</Heading>
 			<Box
 				display="grid"
-				gridTemplateColumns="repeat(auto-fit, minmax(400px, 1fr))"
+				gridTemplateColumns="repeat(auto-fit, minmax(200px, 1fr))"
 				gap="30px"
 			>
 				{items.map((item) => (
@@ -40,10 +40,15 @@ const Books = () => {
 						overflow="hidden"
 						variant="outline"
 						key={item.id}
+						display="flex"
+						flexDirection="column"
+						justifyContent="space-between"
+						padding="30px"
 					>
 						<Image
 							objectFit="cover"
 							maxW={{ base: "100%", sm: "200px" }}
+							maxHeight="200px"
 							src={item.src}
 							alt="book not found"
 						/>

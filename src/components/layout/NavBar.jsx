@@ -8,10 +8,22 @@ import {
 	Flex,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
 
 const NavBar = ({ children }) => {
+	const [categoryName, setCategoryName] = useState("category");
+	const { pathname } = useLocation();
+
+	useEffect(() => {
+		if (pathname.startsWith("/category/")) {
+			pathname.split("/category/")[1] &&
+				setCategoryName(pathname.split("/category/")[1]);
+		} else {
+			setCategoryName("category");
+		}
+	}, [pathname]);
 	const navigate = useNavigate();
 	return (
 		<Flex
@@ -42,7 +54,7 @@ const NavBar = ({ children }) => {
 					rightIcon={<ChevronDownIcon />}
 					sx={categoryStyle}
 				>
-					Category
+					{categoryName}
 				</MenuButton>
 				<MenuList sx={listStyle}>
 					<MenuItem
@@ -75,6 +87,8 @@ const NavBar = ({ children }) => {
 const categoryStyle = {
 	bg: "gray.900",
 	color: "white",
+	textTransform: "capitalize",
+	width: "200px",
 	":hover": {
 		bg: "gray.900",
 		color: "white",

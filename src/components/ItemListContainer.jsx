@@ -29,7 +29,7 @@ const ItemListContainer = () => {
 			</Heading>
 			<Box
 				display="grid"
-				gridTemplateColumns="repeat(auto-fit, minmax(400px, 1fr))"
+				gridTemplateColumns="repeat(auto-fit, minmax(200px, 1fr))"
 				gap="30px"
 			>
 				{data.products.map((item) => (
@@ -38,12 +38,16 @@ const ItemListContainer = () => {
 						overflow="hidden"
 						variant="outline"
 						key={item.id}
+						display="flex"
+						flexDirection="column"
+						justifyContent="space-between"
 					>
 						<Image
 							objectFit="cover"
 							maxW={{ base: "100%", sm: "200px" }}
+							maxHeight="200px"
 							src={item.src}
-							alt="Caffe Latte"
+							alt={`${item.name} not found`}
 						/>
 
 						<Stack>

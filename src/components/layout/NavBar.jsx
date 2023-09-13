@@ -1,34 +1,12 @@
-import {
-	Menu,
-	MenuButton,
-	MenuList,
-	MenuItem,
-	Button,
-	Image,
-	Flex,
-} from "@chakra-ui/react";
-import { useGoogleLogin } from "@react-oauth/google";
-import { ChevronDownIcon } from "@chakra-ui/icons";
-import { useNavigate, useLocation } from "react-router-dom";
+import { Button, Image, Flex, Box } from "@chakra-ui/react";
 import PropTypes from "prop-types";
-import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useGoogleLogin } from "@react-oauth/google";
 
 const NavBar = ({ children }) => {
-	const [categoryName, setCategoryName] = useState("category");
-	const { pathname } = useLocation();
-
-	useEffect(() => {
-		if (pathname.startsWith("/category/")) {
-			pathname.split("/category/")[1] &&
-				setCategoryName(pathname.split("/category/")[1]);
-		} else {
-			setCategoryName("category");
-		}
-	}, [pathname]);
 	const navigate = useNavigate();
-
 	const login = useGoogleLogin({
-		onSuccess: (responseToken) => console.log(responseToken),
+		onSuccess: (token) => console.log(token),
 	});
 	return (
 		<Flex
@@ -53,36 +31,26 @@ const NavBar = ({ children }) => {
 					fallbackSrc="/Coffee-cup-clip-art-free-perfect-cup-of-coffee-clipart-3-clipartcow.png"
 				/>
 			</Flex>
-
-			<Menu>
-				<MenuButton
-					as={Button}
-					rightIcon={<ChevronDownIcon />}
-					sx={categoryStyle}
-				>
-					{categoryName}
-				</MenuButton>
-				<MenuList sx={listStyle}>
-					<MenuItem
-						sx={listsStyle}
-						onClick={() => navigate("/category/electronics")}
-					>
-						Electronics
-					</MenuItem>
-					<MenuItem
-						sx={listsStyle}
-						onClick={() => navigate("/category/vehicles")}
-					>
-						Vehicles
-					</MenuItem>
-					<MenuItem
-						sx={listStyle}
-						onClick={() => navigate("/category/books")}
-					>
-						Books
-					</MenuItem>
-				</MenuList>
-			</Menu>
+			<Box
+				as="div"
+				s
+				sx={listStyle}
+				onClick={() => navigate("/category/electronics")}
+			>
+				Electronics
+			</Box>
+			<Box
+				sx={listStyle}
+				onClick={() => navigate("/category/vehicles")}
+			>
+				Vehicles
+			</Box>
+			<Box
+				sx={listStyle}
+				onClick={() => navigate("/category/books")}
+			>
+				Books
+			</Box>
 
 			<Button
 				sx={loginStyle}
@@ -90,39 +58,16 @@ const NavBar = ({ children }) => {
 			>
 				Login
 			</Button>
+
 			{children}
 		</Flex>
 	);
 };
 
-const categoryStyle = {
-	bg: "gray.900",
-	color: "white",
-	textTransform: "capitalize",
-	width: "200px",
-	":hover": {
-		bg: "gray.900",
-		color: "white",
-		outline: "none",
-	},
-	":active": {
-		bg: "gray.900",
-	},
-};
-
 const listStyle = {
 	bg: "gray.900",
 	color: "white",
-	outline: "none",
-};
-const listsStyle = {
-	bg: "gray.900",
-	alignItems: "center",
-	":hover": {
-		bg: "gray.700",
-		border: "none",
-		outline: "none",
-	},
+	cursor: "pointer",
 };
 
 const loginStyle = {

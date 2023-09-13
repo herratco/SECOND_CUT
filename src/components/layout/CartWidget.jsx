@@ -1,8 +1,8 @@
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Text, Box } from "@chakra-ui/react";
 const CartWidget = () => {
-	const count = localStorage.getItem("count") || 0;
-	localStorage.setItem("count", count);
+	let count = localStorage.getItem("cart") || 0;
+	count = JSON.parse(count).length;
 	return (
 		<Box
 			display="flex"

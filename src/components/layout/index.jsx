@@ -2,7 +2,7 @@ import { Box } from "@chakra-ui/react";
 import NavBar from "./NavBar";
 import CartWidget from "./CartWidget";
 import { ChakraProvider } from "@chakra-ui/react";
-import ItemListContainer from "../ItemListContainer";
+import { Outlet } from "react-router-dom";
 
 export default function Layout() {
 	return (
@@ -21,7 +21,7 @@ export default function Layout() {
 					as="div"
 					display="grid"
 				>
-					<ItemListContainer />
+					{<Outlet />}
 				</Box>
 			</Box>
 		</ChakraProvider>

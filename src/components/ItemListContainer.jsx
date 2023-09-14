@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import Items from "./Items";
 import data from "./util/data.json";
 import { Container, Box, Heading } from "@chakra-ui/react";
 
@@ -20,7 +20,7 @@ const ItemListContainer = () => {
 				gridTemplateColumns="repeat(auto-fit, minmax(250px, 1fr))"
 				gap="30px"
 			>
-				<Outlet />
+				<Items />
 			</Box>
 		</Container>
 	);

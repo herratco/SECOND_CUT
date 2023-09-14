@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
 	Container,
 	Card,
@@ -12,15 +12,23 @@ import {
 	Box,
 } from "@chakra-ui/react";
 
-const Books = () => {
+const Categories = () => {
+	const { id } = useParams();
 	const data = useLoaderData();
 	const navigate = useNavigate();
-	let items = data.products.filter((item) => item.category === "vehicles");
+	let items = data.products.filter((item) => item.category === id);
 	return (
 		<Container
 			maxW="6xl"
 			pt="40px"
 		>
+			<Heading
+				as="h1"
+				size="md"
+				p="40px 0"
+			>
+				{data.preference} {id}
+			</Heading>
 			<Box
 				display="grid"
 				gridTemplateColumns="repeat(auto-fit, minmax(250px, 1fr))"
@@ -55,7 +63,7 @@ const Books = () => {
 									variant="solid"
 									colorScheme="white"
 									color="blue.800"
-									onClick={() => navigate(`/item/${item.id}`)}
+									onClick={() => navigate(`/detail/${item.id}`)}
 								>
 									Show detail
 								</Button>
@@ -68,4 +76,4 @@ const Books = () => {
 	);
 };
 
-export default Books;
+export default Categories;

@@ -1,9 +1,9 @@
-import ItemListContainer from "./components/layout";
+import ItemListContainer from "./components/ItemListContainer";
+import Navbar from "./components/layout";
 import Item from "./components/ItemDetail";
 import util from "./components/util/data.json";
 import { json } from "react-router-dom";
 import Categories from "./components/catagories";
-import Items from "./components/Items";
 import "./App.css";
 
 import {
@@ -16,14 +16,13 @@ const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route
 			path="/"
-			element={<ItemListContainer />}
+			element={<Navbar />}
 		>
 			<Route
 				index
 				loader={dataLoader}
-				element={<Items />}
+				element={<ItemListContainer />}
 			/>
-
 			<Route
 				path="item/:id"
 				loader={dataLoader}

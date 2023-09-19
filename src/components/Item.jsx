@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
 	Card,
 	Image,
@@ -8,7 +9,7 @@ import {
 	Button,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-export default function Item(item) {
+export default function Item({ item }) {
 	const navigate = useNavigate();
 	return (
 		<Card

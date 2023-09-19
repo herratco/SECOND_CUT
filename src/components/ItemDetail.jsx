@@ -14,7 +14,8 @@ export default function ItemDetail() {
 	const { id } = useParams();
 	const data = useLoaderData();
 
-	let item = data.products.find((single) => single.id == id);
+	let item = data.products.filter((single) => single.id == id);
+	item = item[0];
 	let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 	return (
@@ -50,7 +51,13 @@ export default function ItemDetail() {
 						variant="solid"
 						colorScheme="orange"
 						onClick={() => {
-							cart.push(data.products.filter((prod) => prod.id === item.id)[0]);
+							let currentItem;
+							if (cart.find((element) => element.id === item.id)) {
+								currentItem = data.products.find((prod) => prod.id === item.id);
+								currentItem.id = cart.length + currentItem.id;
+							}
+							currentItem = data.products.find((prod) => prod.id === item.id);
+							cart.push(currentItem);
 							//make real json object
 							localStorage.setItem("cart", JSON.stringify(cart));
 							location.reload();

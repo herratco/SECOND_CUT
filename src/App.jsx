@@ -4,6 +4,7 @@ import Item from "./components/ItemDetail";
 import util from "./components/util/data.json";
 import { json } from "react-router-dom";
 import Categories from "./components/catagories";
+import Cart from "./components/cart/Cart";
 import "./App.css";
 
 import {
@@ -32,6 +33,10 @@ const router = createBrowserRouter(
 				path="category/:id"
 				loader={dataLoader}
 				element={<Categories />}
+			/>
+			<Route
+				path="cart"
+				element={<Cart />}
 			/>
 		</Route>
 	)

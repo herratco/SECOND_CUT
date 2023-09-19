@@ -1,5 +1,5 @@
-import Categories from "./Categories";
+import SingleCategory from "./Categories";
 
 export default function Category() {
-	return <Categories />;
+	return <SingleCategory />;
 }

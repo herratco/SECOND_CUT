@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 import { Button, Image, Flex, Box } from "@chakra-ui/react";
-import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import { useGoogleLogin } from "@react-oauth/google";
 
@@ -33,7 +33,6 @@ const NavBar = ({ children }) => {
 			</Flex>
 			<Box
 				as="div"
-				s
 				sx={listStyle}
 				onClick={() => navigate("/category/electronics")}
 			>
@@ -79,7 +78,4 @@ const loginStyle = {
 	},
 };
 
-NavBar.propTypes = {
-	children: PropTypes.function,
-};
 export default NavBar;

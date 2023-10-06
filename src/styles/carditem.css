@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cardItem{
+    width: 290px;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+
+
+.cardDescription .description{
+    display: none;
+}
+
+.cardDescription .cant{
+    color: black;
+    font-size: 13px;
+}
+
+/* imagen*/
+.cardItem .cardImg{
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+}
+
+.cardItem .cardImg img{
+    transform: scale(0.65);
+}
+
+/*descripcion*/
+.cardDescription{
+    display: flex;
+    flex-direction: column;
+    height: 35%;
+}
+
+.cardDescription .title{
+    font-size: 21px;
+    margin: 6px 0;
+}
+
+.cardDescription .description{
+    display: none;
+}
+
+.cardDescription .cant{
+    color: black;
+    font-size: 16px;
+    margin: 6px 0;
+}
+
+.cardDescription .precio{
+    color: #000000;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 6px 0;
+}
+
+/*botones*/
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.ButtonsDetalles{
+    text-align: center;
+    width: 100%;
+    border-radius: 50px;
+    background-color: #222222;
+    color: white;
+    font-size: 20px;
+    border: none;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+}
+
+.ButtonsDetalles:hover{
+background-color: #000000;
+}
+
+.ButtonsAddCart{
+    background-color: #5b00fb;
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ButtonsAddCart img{
+    transform: scale(0.7);
+}
+
+.ButtonsDetalleshover, .ButtonsAddCart:hover{
+    background-color: #4c00d1;
+    }
